@@ -86,7 +86,7 @@ Now let's open an image and see how we can use our NNMF function to compress it.
 ## Image compression
 
 We will load the image with [Matplotlib](https://matplotlib.org/) and then pick only one of the color channels to keep things simple. The two versions of our test image are visualized below.
-
+The original image that is used was created by Autumn Goodman can [be found here](https://unsplash.com/@auttgood).
 
 ```python
 img = plt.imread("./images/small.jpg")
