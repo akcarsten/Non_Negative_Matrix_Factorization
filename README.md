@@ -18,17 +18,17 @@ import matplotlib.pyplot as plt
 
 A detailed explanation of the intuition behind the NNMF algorithm can be found in the accompanying Medium article to this notebook which is why we will keep this part short here. In brief, what we want to achieve in NNMF is to represent any positive, numerical matrix as the product of two lower dimensional matrices. This allows us to 1) reduce the size of an image file and 2) cluster datasets by their most prominent features. So what we want to do is the following:
 
-$$ V = WH$$
+![png](./images/equation_01.png)
 
 Where *V* is our original input matrix, e.g. an image, *W* is our feature matrix and *H* contains the weights of the features. This way we can reconstruct *V* from *WH*.
 The hard part however is to find *W* and *H*. There are several ways of doing so but here we will stay with the multiplicative update rule derived from the loss function based on the square of the Euclidian distance between *V* and *WH*.
 
-$$L(V, HW)={\lVert V-WH \rVert}^2$$
+![png](./images/equation_05.png)
 
 Using this this loss function will give rise to the following update rule for H and W:
 
-$$H^{n+1}_{[i,j]} \leftarrow H^{n}_{[i,j]} \frac{((W^n)^T V))_{[i,j]}}{((W^n)^T W^n H^n)_{[i,j]}}$$
-$$W^{n+1}_{[i,j]} \leftarrow W^{n}_{[i,j]} \frac{(V (H^{n+1})^T))_{[i,j]}}{(W^n H^{n+1} (H^{n+1})^T)_{[i,j]}}$$
+![png](./images/equation_06.png)
+![png](./images/equation_07.png)
 
 If you want to understand this in more detail I recommend to look into the publication by [Lee and Seung](https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf).
 
@@ -56,7 +56,7 @@ The initialization will be done by choosing random positive numbers with matrix 
 
 The function below takes care of all the above. By default we run the algorithm for 100 iterations with a rank of 10. If this is the best default setting we will see later in this notebook. As we initialize *W* and *H* with random numbers our loss will be large in the beginning.
 
-$$L(V, HW)=max(L(V, HW))$$
+![png](./images/equation_08.png)
 
 The loss is expected to decline with every iteration until it reaches a minimum . However, it should be noted here that this minimum does not have to be the global minimum but rather represents a local minimum. Therefore running the NNMF algorithm multiple times will avoid getting stuck in unfortunate, local minimum with a large error.
 
@@ -333,10 +333,3 @@ plt.show()
 
 
 ![png](./images/output_24_0.png)
-    
-
-
-
-```python
-
-```
