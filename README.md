@@ -1,6 +1,6 @@
 # Non-Negative Matrix Factorization for Image Compression and Clustering
 
-This is the Python Jupyter Notebook for the Medium article on the from scratch implementation of the Non-Negative Matrix Factorization (NNMF) algorithm in Python. It illustrates the basic implementation of the algorithm and explores some of its features in the context of
+This is the Python Jupyter Notebook for the [Medium article on the from scratch implementation of the Non-Negative Matrix Factorization (NNMF) algorithm in Python](https://towardsdatascience.com/non-negative-matrix-factorization-for-image-compression-and-clustering-89bb0f9fa8ee). It illustrates the basic implementation of the algorithm and explores some of its features in the context of
 1. Image compression
 2. Clustering of neural signals.
 
